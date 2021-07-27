@@ -1,42 +1,21 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import "./style.scss";
 
-const Index = ({ task, setItemState, deleteItem, updateItem }) => {
+const Index = ({ task, setItemState, deleteItem }) => {
 
-    // Done State
     const [state, setState] = useState(task.done);
-
-    // Editing Value
-    const [editVal, setEditVal] = useState(task.title);
-
-    // Editing Error
-    const [editErr, seteEditErr] = useState('');
-
-    // Check if it editing mode or not
     const [editState, setEditState] = useState({
         isEdit: false
     });
 
-    // Change editing mode
     const changeEditState = () => {
         setEditState({
             isEdit: !editState.isEdit
         });
     }
-
-    // Editing handle
-    const editHandle = (e) => {
-        e.preventDefault();
-        if (editVal !== '') {
-            changeEditState();
-            updateItem(task.id, editVal);
-        } else {
-            seteEditErr("You must add a real value!")
-        }
-    }
     
     return (
-        <section className={ !editState.isEdit ? "todo-item" : "todo-item edit-mode"}>
+        <section className="todo-item">
             <label className={ !editState.isEdit ? "todo" : "todo edit-mode"}>
                 { !editState.isEdit ? (
                     <>
@@ -52,10 +31,10 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
                         <div className="todo__text"> {task.title} </div>
                     </>
                 ) : (
-                    <form className="todo-form edit-form" onSubmit={editHandle}>
-                        <input type="text" className="todo-form__input-type" name="title" placeholder="Edit your task..." defaultValue={task.title} onChange={ (e) => setEditVal(e.target.value) } />
-                        <button type="submit" className="todo-form__button-type"> <img src={window.location.origin + '/edit.png'} alt="edit img" /> </button>
-                        {editErr !== '' && (<div className="error-message"> {editErr} </div>)}
+                    <form className="todo-form edit-form">
+                        <input type="text" className="todo-form__input-type" name="title" placeholder="Enter your task..." onChange={(e) => setState(e.target.value)} />
+                        <button type="submit" className="todo-form__button-type"> + </button>
+                        {/* {errorMsg !== '' && (<div className="error-message"> {errorMsg} </div>)} */}
                     </form>
                 )}
                 

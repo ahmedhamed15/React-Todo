@@ -33,6 +33,7 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
         } else {
             seteEditErr("You must add a real value!")
         }
+        
     }
     
     return (

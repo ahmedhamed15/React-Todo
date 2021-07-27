@@ -24,7 +24,6 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
         });
     }
 
-    // Editing handle
     const editHandle = (e) => {
         e.preventDefault();
         if (editVal !== '') {
@@ -33,6 +32,7 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
         } else {
             seteEditErr("You must add a real value!")
         }
+        
     }
     
     return (

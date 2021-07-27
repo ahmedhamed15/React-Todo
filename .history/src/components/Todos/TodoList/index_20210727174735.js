@@ -63,6 +63,7 @@ const Index = () => {
 
     // Update the Item
     const updateItem = (id, title) => {
+
         if (title.trim() !== '') {
             let curItems = [...state.tasks],
                 newItems = curItems.map( (item) => {
@@ -84,6 +85,7 @@ const Index = () => {
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
         }
+        
     }
 
     return (

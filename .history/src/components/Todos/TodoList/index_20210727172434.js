@@ -8,7 +8,7 @@ const Index = () => {
     // Main State
     const [state, setState] = useState({
         tasks: localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [],
-        error: '',
+        error: ''
     });
 
     // Add A New Item
@@ -21,13 +21,13 @@ const Index = () => {
                 };
             setState({
                 tasks: [...state.tasks, newItems],
-                error: '',
+                error: ''
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks, newItems]));
         } else {
             setState({
                 tasks: [...state.tasks],
-                error: "You must add a real value!"
+                error: "You must add real value!"
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
         }
@@ -45,7 +45,7 @@ const Index = () => {
             });
         setState({
             tasks: newItems,
-            error: '',
+            error: ''
         });
         localStorage.setItem('tasks', JSON.stringify(newItems));
     }
@@ -56,34 +56,27 @@ const Index = () => {
             newItems = curItems.filter( (item) => item.id !== id);
         setState({
             tasks: newItems,
-            error: '',
+            error: ''
         });
         localStorage.setItem('tasks', JSON.stringify(newItems));
     }
 
     // Update the Item
     const updateItem = (id, title) => {
-        if (title.trim() !== '') {
-            let curItems = [...state.tasks],
-                newItems = curItems.map( (item) => {
-                    if (item.id === id) {
-                        item.title = title;
-                        return item;
-                    }
+        console.log(id, title);
+        let curItems = [...state.tasks],
+            newItems = curItems.map( (item) => {
+                if (item.id === id) {
+                    item.title = title;
                     return item;
-                });
-            setState({
-                tasks: newItems,
-                error: '',
+                }
+                return item;
             });
-            localStorage.setItem('tasks', JSON.stringify(newItems));
-        } else {
-            setState({
-                tasks: [...state.tasks],
-                error: '',
-            });
-            localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
-        }
+        setState({
+            tasks: newItems,
+            error: ''
+        });
+        localStorage.setItem('tasks', JSON.stringify(newItems));
     }
 
     return (

@@ -5,9 +5,6 @@
     margin: 0 auto;
     cursor: pointer;
     direction: ltr;
-    &.edit-mode {
-      padding: 1em;
-    }
   }
   .no-result {
     padding: 1rem;
@@ -132,9 +129,6 @@
       .todo {
         border-bottom: solid 1px #ddd;
       }
-    }
-    &.edit-mode {
-      margin-right: 0;
     }
   }
 .todo__delete-btn,

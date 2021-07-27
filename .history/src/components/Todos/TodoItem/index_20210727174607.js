@@ -1,39 +1,37 @@
 import React, {useEffect, useState} from "react"
 import "./style.scss";
 
-const Index = ({ task, setItemState, deleteItem, updateItem }) => {
+const Index = ({ task, setItemState, deleteItem, updateItem, editError, fullState }) => {
 
-    // Done State
     const [state, setState] = useState(task.done);
 
-    // Editing Value
     const [editVal, setEditVal] = useState(task.title);
 
-    // Editing Error
-    const [editErr, seteEditErr] = useState('');
+    const [editErr, seteEditErr] = useState(editError);
 
-    // Check if it editing mode or not
     const [editState, setEditState] = useState({
         isEdit: false
     });
 
-    // Change editing mode
     const changeEditState = () => {
         setEditState({
             isEdit: !editState.isEdit
         });
     }
 
-    // Editing handle
     const editHandle = (e) => {
+        console.log(editErr);
         e.preventDefault();
-        if (editVal !== '') {
-            changeEditState();
-            updateItem(task.id, editVal);
-        } else {
-            seteEditErr("You must add a real value!")
-        }
+        changeEditState();
+        updateItem(task.id, editVal);
+        // if (editError !== '') {
+            
+        // } 
     }
+
+    useEffect(() => {
+        console.log('asasakjahsgfcj');
+    }, [fullState])
     
     return (
         <section className={ !editState.isEdit ? "todo-item" : "todo-item edit-mode"}>

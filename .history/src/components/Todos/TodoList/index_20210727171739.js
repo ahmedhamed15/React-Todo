@@ -8,7 +8,7 @@ const Index = () => {
     // Main State
     const [state, setState] = useState({
         tasks: localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [],
-        error: '',
+        error: ''
     });
 
     // Add A New Item
@@ -21,13 +21,13 @@ const Index = () => {
                 };
             setState({
                 tasks: [...state.tasks, newItems],
-                error: '',
+                error: ''
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks, newItems]));
         } else {
             setState({
                 tasks: [...state.tasks],
-                error: "You must add a real value!"
+                error: "You must add real value!"
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
         }
@@ -45,7 +45,7 @@ const Index = () => {
             });
         setState({
             tasks: newItems,
-            error: '',
+            error: ''
         });
         localStorage.setItem('tasks', JSON.stringify(newItems));
     }
@@ -56,34 +56,14 @@ const Index = () => {
             newItems = curItems.filter( (item) => item.id !== id);
         setState({
             tasks: newItems,
-            error: '',
+            error: ''
         });
         localStorage.setItem('tasks', JSON.stringify(newItems));
     }
 
     // Update the Item
-    const updateItem = (id, title) => {
-        if (title.trim() !== '') {
-            let curItems = [...state.tasks],
-                newItems = curItems.map( (item) => {
-                    if (item.id === id) {
-                        item.title = title;
-                        return item;
-                    }
-                    return item;
-                });
-            setState({
-                tasks: newItems,
-                error: '',
-            });
-            localStorage.setItem('tasks', JSON.stringify(newItems));
-        } else {
-            setState({
-                tasks: [...state.tasks],
-                error: '',
-            });
-            localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
-        }
+    const updateItem = (id) => {
+
     }
 
     return (
@@ -111,12 +91,12 @@ const Index = () => {
 
 
             {/* Todo From */}
-            <TodoFrom addNewItem={addNewItem} errorMsg={state.error} />
+            <TodoFrom addNewItem={addNewItem} errorMsg={state.error} updateItem={updateItem} />
 
             {/* Todos List */}
             <div className="todo-list">
                 {/* { state.error !== '' && (<div className="todo"> {state.error} </div>) } */}
-                { state.tasks.length > 0 ? state.tasks.map( (item) => <TodoItem key={item.id} task={item} setItemState={setItemState} deleteItem={deleteItem} updateItem={updateItem} /> ) : (<div className="no-result"> There are no items, yet! </div>) }
+                { state.tasks.length > 0 ? state.tasks.map( (item) => <TodoItem key={item.id} task={item} setItemState={setItemState} deleteItem={deleteItem} /> ) : (<div className="no-result"> There are no items, yet! </div>) }
             </div>
             <article className="copyright"> For Copyright &copy; : Some designs are not mine. </article>
 

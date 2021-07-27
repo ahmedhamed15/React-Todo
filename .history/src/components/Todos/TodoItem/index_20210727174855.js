@@ -3,28 +3,22 @@ import "./style.scss";
 
 const Index = ({ task, setItemState, deleteItem, updateItem }) => {
 
-    // Done State
     const [state, setState] = useState(task.done);
 
-    // Editing Value
     const [editVal, setEditVal] = useState(task.title);
 
-    // Editing Error
     const [editErr, seteEditErr] = useState('');
 
-    // Check if it editing mode or not
     const [editState, setEditState] = useState({
         isEdit: false
     });
 
-    // Change editing mode
     const changeEditState = () => {
         setEditState({
             isEdit: !editState.isEdit
         });
     }
 
-    // Editing handle
     const editHandle = (e) => {
         e.preventDefault();
         if (editVal !== '') {
@@ -33,6 +27,7 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
         } else {
             seteEditErr("You must add a real value!")
         }
+        
     }
     
     return (

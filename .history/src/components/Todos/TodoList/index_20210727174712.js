@@ -63,6 +63,7 @@ const Index = () => {
 
     // Update the Item
     const updateItem = (id, title) => {
+
         if (title.trim() !== '') {
             let curItems = [...state.tasks],
                 newItems = curItems.map( (item) => {
@@ -84,6 +85,7 @@ const Index = () => {
             });
             localStorage.setItem('tasks', JSON.stringify([...state.tasks]));
         }
+        
     }
 
     return (
@@ -116,7 +118,7 @@ const Index = () => {
             {/* Todos List */}
             <div className="todo-list">
                 {/* { state.error !== '' && (<div className="todo"> {state.error} </div>) } */}
-                { state.tasks.length > 0 ? state.tasks.map( (item) => <TodoItem key={item.id} task={item} setItemState={setItemState} deleteItem={deleteItem} updateItem={updateItem} /> ) : (<div className="no-result"> There are no items, yet! </div>) }
+                { state.tasks.length > 0 ? state.tasks.map( (item) => <TodoItem key={item.id} task={item} editError={state.editError} setItemState={setItemState} deleteItem={deleteItem} updateItem={updateItem} /> ) : (<div className="no-result"> There are no items, yet! </div>) }
             </div>
             <article className="copyright"> For Copyright &copy; : Some designs are not mine. </article>
 

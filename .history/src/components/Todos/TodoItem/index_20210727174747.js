@@ -3,36 +3,27 @@ import "./style.scss";
 
 const Index = ({ task, setItemState, deleteItem, updateItem }) => {
 
-    // Done State
     const [state, setState] = useState(task.done);
 
-    // Editing Value
     const [editVal, setEditVal] = useState(task.title);
 
-    // Editing Error
     const [editErr, seteEditErr] = useState('');
 
-    // Check if it editing mode or not
     const [editState, setEditState] = useState({
         isEdit: false
     });
 
-    // Change editing mode
     const changeEditState = () => {
         setEditState({
             isEdit: !editState.isEdit
         });
     }
 
-    // Editing handle
     const editHandle = (e) => {
+        console.log(editErr);
         e.preventDefault();
-        if (editVal !== '') {
-            changeEditState();
-            updateItem(task.id, editVal);
-        } else {
-            seteEditErr("You must add a real value!")
-        }
+        changeEditState();
+        updateItem(task.id, editVal);
     }
     
     return (

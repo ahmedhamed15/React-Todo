@@ -9,7 +9,7 @@
     position: relative;
     flex-wrap: wrap;
     &.edit-form {
-        max-width: 100% !important;
+        max-width: 100%;
     }
     .todo-form__input-type,
     .todo-form__button-type {
@@ -42,13 +42,6 @@
         }
         &:focus {
             outline: 0;
-        }
-        img {
-            width: 15px;
-            height: 15px;
-            display: block;
-            margin: auto;
-            margin-top: -2px;
         }
     }
 }

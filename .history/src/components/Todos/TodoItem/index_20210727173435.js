@@ -1,38 +1,28 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import "./style.scss";
 
-const Index = ({ task, setItemState, deleteItem, updateItem }) => {
+const Index = ({ task, setItemState, deleteItem, updateItem, editError }) => {
 
-    // Done State
     const [state, setState] = useState(task.done);
 
-    // Editing Value
     const [editVal, setEditVal] = useState(task.title);
 
-    // Editing Error
-    const [editErr, seteEditErr] = useState('');
-
-    // Check if it editing mode or not
     const [editState, setEditState] = useState({
         isEdit: false
     });
 
-    // Change editing mode
     const changeEditState = () => {
         setEditState({
             isEdit: !editState.isEdit
         });
     }
 
-    // Editing handle
     const editHandle = (e) => {
         e.preventDefault();
-        if (editVal !== '') {
+        if (editError !== '') {
             changeEditState();
-            updateItem(task.id, editVal);
-        } else {
-            seteEditErr("You must add a real value!")
-        }
+        } 
+        updateItem(task.id, editVal);
     }
     
     return (
@@ -55,7 +45,7 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
                     <form className="todo-form edit-form" onSubmit={editHandle}>
                         <input type="text" className="todo-form__input-type" name="title" placeholder="Edit your task..." defaultValue={task.title} onChange={ (e) => setEditVal(e.target.value) } />
                         <button type="submit" className="todo-form__button-type"> <img src={window.location.origin + '/edit.png'} alt="edit img" /> </button>
-                        {editErr !== '' && (<div className="error-message"> {editErr} </div>)}
+                        {editError !== '' && (<div className="error-message"> {editError} </div>)}
                     </form>
                 )}
                 
