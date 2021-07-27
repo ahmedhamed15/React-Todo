@@ -1,0 +1,29 @@
+.todo-form {
+    background: #FFF;
+    font-size: 20px;
+    max-width: 15em;
+    margin: auto;
+    padding: 1em;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    .todo-form__input-type,
+    .todo-form__button-type {
+        height: 30px;
+        border: 1px solid #777
+    }
+    .todo-form__input-type {
+        width: calc(80% - 20px);
+        padding: 3px 10px;
+        border-radius: 5px 0 0 5px;
+    }
+    .todo-form__button-type {
+        width: calc(20% - 1rem);
+        border-radius: 0 5px 5px 0;
+        height: 37px;
+        background: none;
+        color: #0FC0F5;
+        cursor: pointer;
+        font: {
+            size: 25px;
+        }
+    }
+}

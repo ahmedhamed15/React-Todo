@@ -1,0 +1,14 @@
+.qoute {
+    text-align: center;
+    blockquote {
+        font: {
+            size: 20px;
+            family: 'tahoma', arial;
+            weight: 500;
+        }
+        color: #555;
+        &::after {
+            content: """;
+        }
+    }
+}

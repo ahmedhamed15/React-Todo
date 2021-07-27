@@ -1,0 +1,13 @@
+.todo-list {
+    background: #FFF;
+    font-size: 20px;
+    margin: auto;
+    padding: 0.5em 1em;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+.wrapper-scrolled {
+    max-height: 345px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 15em;
+}

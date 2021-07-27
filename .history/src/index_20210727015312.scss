@@ -1,0 +1,43 @@
+html {
+  background: #ddd;
+  height: 100%;
+  display: flex;
+}
+body {
+  width: 100%;
+  margin: auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'tahoma', arial;
+}
+
+#root {
+  height: 100%;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #0FC0F5, #27FDC7);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to bottom, #27FDC7, #0FC0F5);
+
+}

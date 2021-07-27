@@ -1,0 +1,38 @@
+.todo-form {
+    background: #FFF;
+    font-size: 20px;
+    max-width: 15em;
+    margin: auto;
+    padding: 1em;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: relative;
+    .todo-form__input-type,
+    .todo-form__button-type {
+        height: 30px;
+        border: 1px solid #777
+    }
+    .todo-form__input-type {
+        width: 100%;
+        padding: 3px 10px;
+        border-radius: 30px;
+        &:focus {
+            outline: 0;
+        }
+    }
+    .todo-form__button-type {
+        border-radius: 30px;
+        width: 60px;
+        height: 38px;
+        background: none;
+        color: #0FC0F5;
+        cursor: pointer;
+        position: absolute;
+        right: 1.51em;
+        top: 50%;
+        transform: translateY(-50%);
+        font: {
+            size: 25px;
+        }
+    }
+}
