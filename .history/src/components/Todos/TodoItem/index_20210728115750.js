@@ -59,6 +59,9 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
                         {editErr !== '' && (<div className="error-message"> {editErr} </div>)}
                     </form>
                 )}
+                
+
+            
             </label>
 
             { !editState.isEdit && (

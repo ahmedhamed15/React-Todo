@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect, useState} from "react"
 import "./style.scss";
 import editImg from '../../../assets/images/edit.png';
 
@@ -59,6 +59,9 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
                         {editErr !== '' && (<div className="error-message"> {editErr} </div>)}
                     </form>
                 )}
+                
+
+            
             </label>
 
             { !editState.isEdit && (

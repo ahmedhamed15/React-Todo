@@ -2,7 +2,6 @@ import "./style.scss";
 
 const Index = () => {
 
-    // All Qoutes
     const quotes = [
         'Organize your time 🤯',
         'Time is precious 🕐',
@@ -12,12 +11,11 @@ const Index = () => {
         'Focus on being productive instead of busy 🧐'
     ];
 
-    // Get Random Qoute everytime
-    const randomQoute = quotes[Math.floor(Math.random()*quotes.length)];
+    console.log(Math.floor(0.4*quotes.length))
 
     return (
         <section className="qoute">
-            <blockquote> { randomQoute } </blockquote>
+            <blockquote> { quotes[Math.floor(Math.random()*quotes.length)] } </blockquote>
         </section>
     )
 }

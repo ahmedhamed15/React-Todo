@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect, useState} from "react"
 import "./style.scss";
 import editImg from '../../../assets/images/edit.png';
 
@@ -55,16 +55,19 @@ const Index = ({ task, setItemState, deleteItem, updateItem }) => {
                 ) : (
                     <form className="todo-form edit-form" onSubmit={editHandle}>
                         <input type="text" className="todo-form__input-type" name="title" placeholder="Edit your task..." defaultValue={task.title} onChange={ (e) => setEditVal(e.target.value) } />
-                        <button type="submit" className="todo-form__button-type"> <img src={editImg} alt="edit img" /> </button>
+                        <button type="submit" className="todo-form__button-type"> <img src={window.location.origin + '/edit.png'} alt="edit img" /> </button>
                         {editErr !== '' && (<div className="error-message"> {editErr} </div>)}
                     </form>
                 )}
+                
+
+            
             </label>
 
             { !editState.isEdit && (
                 <>
                     <span className="todo__delete-btn" onClick={ () => deleteItem(task.id)}> &times; </span>
-                    <span className="todo__edit-btn" onClick={ changeEditState }> <img src={editImg} alt="edit img" /> </span>
+                    <span className="todo__edit-btn" onClick={ changeEditState }> <img src={window.location.origin + '/edit.png'} alt="edit img" /> </span>
                 </>
             )}
             
